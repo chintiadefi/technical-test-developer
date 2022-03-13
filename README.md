@@ -28,3 +28,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 By default all environment variables loaded through `.env` are only available in the Node.js environment, meaning they won't be exposed to the browser.
 
 Reference in the file `envdev`.
+
+## ❗❗NOTE❗❗
+This project use dummy Rest API, for API POST, PUT, and DELETE only give response but will not update the database.
