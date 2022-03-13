@@ -1,8 +1,8 @@
 import { GET_LIST_USERS } from "../actions/index";
 
-export const initialState = {};
+export const initialState = [];
 
-const reducer = (state = initialState, action = {}) => {
+const reducer = (state = initialState, action = []) => {
   if (action.type === GET_LIST_USERS) {
     return action.data;
   }
