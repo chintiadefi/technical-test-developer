@@ -1,0 +1,45 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+		// default rules
+		"semi": ["error", "always"],
+		"quotes": ["error", "double"],
+		"comma-dangle": ["error", "always-multiline"],
+		"no-tabs": ["error", { "allowIndentationTabs": true }],
+		"no-multi-spaces": ["error", { "ignoreEOLComments": false }],
+		"space-before-blocks": ["error"],
+		"no-irregular-whitespace": ["error"],
+		"no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+		"no-unused-vars": ["error", { "vars": "all", "args": "none", "ignoreRestSiblings": true }],
+
+		// react rules
+		"react/jsx-key": ["error"],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"react-hooks/exhaustive-deps": "off"
+    },
+    "globals": {
+		"chrome": true,
+		"fetch": true,
+		"FormData": true,
+		"document": true,
+		"window": true
+	}
+}

@@ -1,0 +1,23 @@
+@import "~/src/styles/index.scss";
+
+.layout {
+    .title {
+        color: $white;
+        text-align: center;
+    }
+
+    .content {
+        padding: 50px;
+    
+        @media only screen and (max-width: ($screen-sm)) {
+            padding: 20px;
+        }
+
+        &-site-layout {
+            min-height: 80vh;
+            padding: 24px;
+            background: $white;
+            border-radius: 5px;
+        }
+    }
+}

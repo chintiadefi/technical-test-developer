@@ -1,0 +1,17 @@
+@import "~/src/styles/index.scss";
+
+.Page404 {
+    width: 100%;
+    height: 100vh;
+    background: $background;
+    text-align: center;
+
+    .title {
+        font-size: 150px;
+        line-height: 32px;
+    }
+
+    .description {
+        color: $faded;
+    }
+}
