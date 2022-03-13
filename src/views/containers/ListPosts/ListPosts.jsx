@@ -11,7 +11,7 @@ const { Item } = List;
 const { Meta } = Item;
 const { TextArea } = Input;
 
-function ListUsers() {
+function ListPosts() {
   const dispatch = useDispatch();
   const { userId } = useParams();
   const listPosts = useSelector((state) => state.posts);
@@ -156,4 +156,4 @@ function ListUsers() {
   );
 }
 
-export default ListUsers;
+export default ListPosts;

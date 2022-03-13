@@ -4,18 +4,18 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Table, Button } from "antd";
 import url, { generateDynamicUrl } from "../../../config/url";
 import { GET_ALBUMS_USER } from "../../../store/actions/index";
-import { GetUsersAlbums } from "../../../services/fetch-api";
+import { GetUserAlbums } from "../../../services/fetch-api";
 
 const { Column } = Table;
 
-function ListUsers() {
+function ListAlbums() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { userId } = useParams();
   const listAlbums = useSelector((state) => state.albums);
 
   useEffect(() => {
-    GetUsersAlbums(userId).then((res) => {
+    GetUserAlbums(userId).then((res) => {
       dispatch({ type: GET_ALBUMS_USER, data: res.data });
     });
   }, [dispatch]);
@@ -38,15 +38,15 @@ function ListUsers() {
 		<Column title="Title" dataIndex="title" key="title" />
 		<Column
 			title="Action"
-			width={150}
+			width={175}
 			align="center"
 			key="action"
 			render={(item) => (
-				<Button type="primary" onClick={() => clickDetail(item.id)}>View Posts</Button>
+				<Button type="primary" onClick={() => clickDetail(item.id)}>View List Photos</Button>
 			)}
 		/>
 	</Table>
   );
 }
 
-export default ListUsers;
+export default ListAlbums;
