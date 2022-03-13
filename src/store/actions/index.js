@@ -1,3 +1,5 @@
 export const GET_LIST_USERS = "GET_LIST_USERS";
 export const GET_POSTS_USER = "GET_POSTS_USER";
 export const GET_ALBUMS_USER = "GET_ALBUMS_USER";
+export const GET_PHOTOS_ALBUM = "GET_PHOTOS_ALBUM";
+export const GET_DETAIL_PHOTO = "GET_DETAIL_PHOTO";

@@ -1,0 +1,10 @@
+@import "~/src/styles/index.scss";
+
+.modal-image {
+    min-width: 400px;
+    min-height: 400px;
+    background-color: $white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

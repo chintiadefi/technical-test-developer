@@ -1,7 +1,8 @@
 import React from "react";
 import ListUser from "../views/containers/ListUsers/ListUsers";
-import ListAlbums from "../views/containers/ListAlbums/ListAlbums";
 import ListPosts from "../views/containers/ListPosts/ListPosts";
+import ListAlbums from "../views/containers/ListAlbums/ListAlbums";
+import ListPhotos from "../views/containers/ListPhotos/ListPhotos";
 import url from "./url";
 
 const routes = [
@@ -52,6 +53,29 @@ const routes = [
       id: 2,
       href: url.USER_ALBUMS.route,
       name: url.USER_ALBUMS.name,
+    },
+    ],
+  },
+  {
+    id: 4,
+    name: url.ALBUM_PHOTOS.name,
+    path: url.ALBUM_PHOTOS.route,
+    exact: true,
+    content: <ListPhotos />,
+    breadCrumb: [{
+      id: 1,
+      href: url.LIST_USER.route,
+      name: url.LIST_USER.name,
+    },
+    {
+      id: 2,
+      href: url.USER_ALBUMS.route,
+      name: url.USER_ALBUMS.name,
+    },
+    {
+      id: 3,
+      href: url.ALBUM_PHOTOS.route,
+      name: url.ALBUM_PHOTOS.name,
     },
     ],
   },

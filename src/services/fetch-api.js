@@ -16,11 +16,11 @@ export const GetUsers = async () => {
   return result;
 };
 
-export const GetUsersPosts = async (id) => {
+export const GetUsersPosts = async (userId) => {
   let result = [];
 
   await ApiRequest.get(
-    `${constants.baseUrl}/${constants.service.posts}?userId=${id}`,
+    `${constants.baseUrl}/${constants.service.posts}?userId=${userId}`,
   ).then((res) => {
     result = res;
   })
@@ -31,12 +31,12 @@ export const GetUsersPosts = async (id) => {
   return result;
 };
 
-export const addEditPost = async (payload = {}, id = null) => {
+export const addEditPost = async (payload = {}, postId = null) => {
   let result = [];
 
-  if (id) {
+  if (postId) {
     await ApiRequest.put(
-      `${constants.baseUrl}/${constants.service.posts}/${id}`,
+      `${constants.baseUrl}/${constants.service.posts}/${postId}`,
       { body: payload },
     ).then((res) => {
       result = res;
@@ -59,11 +59,11 @@ export const addEditPost = async (payload = {}, id = null) => {
   return result;
 };
 
-export const deletePost = async (id = null) => {
+export const deletePost = async (postId = null) => {
   let result = [];
 
   await ApiRequest.delete(
-    `${constants.baseUrl}/${constants.service.posts}/${id}`,
+    `${constants.baseUrl}/${constants.service.posts}/${postId}`,
   ).then((res) => {
     result = res;
   })
@@ -74,11 +74,41 @@ export const deletePost = async (id = null) => {
   return result;
 };
 
-export const GetUsersAlbums = async (id = null) => {
+export const GetUserAlbums = async (userId = null) => {
   let result = [];
 
   await ApiRequest.get(
-    `${constants.baseUrl}/${constants.service.albums}?userId=${id}`,
+    `${constants.baseUrl}/${constants.service.albums}?userId=${userId}`,
+  ).then((res) => {
+    result = res;
+  })
+    .catch((err) => {
+      result = err;
+    });
+
+  return result;
+};
+
+export const GetAlbumPhotos = async (albumId = null) => {
+  let result = [];
+
+  await ApiRequest.get(
+    `${constants.baseUrl}/${constants.service.photos}?albumId=${albumId}`,
+  ).then((res) => {
+    result = res;
+  })
+    .catch((err) => {
+      result = err;
+    });
+
+  return result;
+};
+
+export const GetDetailPhoto = async (photoId = null) => {
+  let result = [];
+
+  await ApiRequest.get(
+    `${constants.baseUrl}/${constants.service.photos}/${photoId}`,
   ).then((res) => {
     result = res;
   })
