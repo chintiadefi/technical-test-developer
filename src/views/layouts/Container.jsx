@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { Breadcrumb, Layout, Typography } from "antd";
+import {
+  Breadcrumb, Layout, Typography,
+} from "antd";
 
 import "./container.scss";
 

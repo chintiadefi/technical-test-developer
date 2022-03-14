@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
-  Table, Button, Avatar, Modal,
+  Table, Button, Avatar, Modal, Grid,
 } from "antd";
 import { GET_PHOTOS_ALBUM, GET_DETAIL_PHOTO } from "../../../store/actions/index";
 import { GetAlbumPhotos, GetDetailPhoto } from "../../../services/fetch-api";
@@ -12,6 +12,7 @@ import "./ListPhotos.scss";
 const { Column } = Table;
 
 function ListPhotos() {
+  const { md } = Grid.useBreakpoint();
   const dispatch = useDispatch();
   const { albumId } = useParams();
   const [modalPhotoVisible, setModalPhotoVisible] = useState(false);
@@ -45,10 +46,10 @@ function ListPhotos() {
 			scroll={{ y: "80vh" }}
 			rowKey="id"
 		>
-			<Column title="Title" dataIndex="title" key="title" />
+			<Column title="Title" width={md ? null : 200} dataIndex="title" key="title" />
 			<Column
 				title="Thumbnail"
-				width={200}
+				width={md ? 200 : 100}
 				align="center"
 				key="thumbnailUrl"
 				render={(item) => (

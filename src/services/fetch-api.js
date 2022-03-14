@@ -16,11 +16,84 @@ export const GetUsers = async () => {
   return result;
 };
 
-export const GetUsersPosts = async (userId) => {
+export const GetUsersPosts = async (userId = null) => {
   let result = [];
 
   await ApiRequest.get(
     `${constants.baseUrl}/${constants.service.posts}?userId=${userId}`,
+  ).then((res) => {
+    result = res;
+  })
+    .catch((err) => {
+      result = err;
+    });
+
+  return result;
+};
+
+export const GetDetailPost = async (postId = null) => {
+  let result = [];
+
+  await ApiRequest.get(
+    `${constants.baseUrl}/${constants.service.posts}/${postId}`,
+  ).then((res) => {
+    result = res;
+  })
+    .catch((err) => {
+      result = err;
+    });
+
+  return result;
+};
+
+export const GetPostComments = async (postId = null) => {
+  let result = [];
+
+  await ApiRequest.get(
+    `${constants.baseUrl}/${constants.service.comments}?postId=${postId}`,
+  ).then((res) => {
+    result = res;
+  })
+    .catch((err) => {
+      result = err;
+    });
+
+  return result;
+};
+
+export const addEditComment = async (payload = {}, commentId = null) => {
+  let result = [];
+
+  if (commentId) {
+    await ApiRequest.put(
+      `${constants.baseUrl}/${constants.service.comments}/${commentId}`,
+      { body: payload },
+    ).then((res) => {
+      result = res;
+    })
+      .catch((err) => {
+        result = err;
+      });
+  } else {
+    await ApiRequest.post(
+      `${constants.baseUrl}/${constants.service.comments}`,
+      { body: payload },
+    ).then((res) => {
+      result = res;
+    })
+      .catch((err) => {
+        result = err;
+      });
+  }
+
+  return result;
+};
+
+export const deleteComment = async (commentId = null) => {
+  let result = [];
+
+  await ApiRequest.delete(
+    `${constants.baseUrl}/${constants.service.comments}/${commentId}`,
   ).then((res) => {
     result = res;
   })

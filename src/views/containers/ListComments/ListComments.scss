@@ -1,0 +1,14 @@
+@import "~/src/styles/index.scss";
+
+.list-comments {
+    .ant-list-item-action {
+        float: none !important;
+        margin-top: 15px;
+        margin-left: 0 !important;
+    }
+    
+    .ant-list-item-meta-title {
+        font-size: 24px !important;
+        font-weight: 700;
+    }
+}

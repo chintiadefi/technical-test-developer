@@ -1,0 +1,16 @@
+@import "~/src/styles/index.scss";
+
+.list-posts {
+    .ant-list-item {
+        @media only screen and (max-width: ($screen-sm)) {
+            display: block;
+        }
+
+        &-action {
+            @media only screen and (max-width: ($screen-sm)) {
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

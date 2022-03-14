@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Table, Button, Space } from "antd";
+import {
+  Table, Button, Space, Grid,
+} from "antd";
 import url, { generateDynamicUrl } from "../../../config/url";
 import { GET_LIST_USERS } from "../../../store/actions/index";
 import { GetUsers } from "../../../services/fetch-api";
@@ -9,6 +11,7 @@ import { GetUsers } from "../../../services/fetch-api";
 const { Column, ColumnGroup } = Table;
 
 function ListUsers() {
+  const { lg } = Grid.useBreakpoint();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const listUsers = useSelector((state) => state.users);
@@ -34,7 +37,7 @@ function ListUsers() {
 		scroll={{ x: "calc(700px + 50%)", y: "80vh" }}
 		rowKey="id"
 	>
-		<Column title="Name" width={250} dataIndex="name" key="name" fixed="left" />
+		<Column title="Name" width={250} dataIndex="name" key="name" fixed={lg ? "left" : false} />
 		<Column title="Username" width={200} dataIndex="username" key="username" />
 		<Column title="Email" width={250} dataIndex="email" key="email" />
 		<ColumnGroup title="Address">
@@ -59,7 +62,7 @@ function ListUsers() {
 			align="center"
 			width={250}
 			key="action"
-			fixed="right"
+			fixed={lg ? "right" : false}
 			render={(item) => (
 				<Space size="middle">
 					<Button type="primary" onClick={() => clickDetail(item.id, true)}>View Posts</Button>
