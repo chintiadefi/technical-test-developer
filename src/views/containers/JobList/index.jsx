@@ -1,39 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Table, Button, Space, Grid,
+  Table, Button, Space, Form, Input, Checkbox,
 } from "antd";
+import { useNavigate } from "react-router-dom";
+import url, { generateDynamicUrl } from "../../../config/url";
 import jobList from "../../../data/positions.json";
+import "./index.scss";
 
 const { Column } = Table;
 
 function JobList() {
-  const { lg } = Grid.useBreakpoint();
+  const navigate = useNavigate();
+  const [data, setData] = useState(jobList);
+
+  const onSearch = (value) => {
+    const title = value.title?.toLowerCase() || "";
+    const location = value.location?.toLowerCase() || "";
+    const type = value.type?.[0] || "";
+    const filterJob = jobList.filter((item) => item.title?.toLowerCase().includes(title))
+      .filter((item) => item.location?.toLowerCase().includes(location))
+      .filter((item) => item.type?.includes(type));
+
+    setData(filterJob);
+  };
+
+  const clickDetail = (id) => {
+    const newPath = generateDynamicUrl(url.JOB_DETAIL.route, {
+      id,
+    });
+    navigate(newPath);
+  };
 
   return (
-	<Table
-		dataSource={jobList}
-		bordered
-		size="middle"
-		scroll={{ x: "calc(700px + 50%)", y: "80vh" }}
-		rowKey="id"
-	>
-		<Column title="Title" width={250} dataIndex="title" key="title" />
-		<Column title="Company" width={200} dataIndex="company" key="company" />
-		<Column title="Type" width={250} dataIndex="type" key="type" />
-		<Column title="Location" width={250} dataIndex="location" key="location" />
-		<Column
-			title="Action"
-			align="center"
-			width={250}
-			key="action"
-			fixed={lg ? "right" : false}
-			render={(item) => (
-				<Space size="middle">
-					<Button type="primary">Detail</Button>
-				</Space>
-			)}
-		/>
-	</Table>
+	<div>
+		<Form
+			className="search-form"
+			autoComplete="off"
+			onFinish={onSearch}
+		>
+			<Form.Item name="title">
+				<Input placeholder="Job Title" allowClear />
+			</Form.Item>
+			<Form.Item name="location">
+				<Input placeholder="Location" allowClear />
+			</Form.Item>
+			<Form.Item name="type">
+				<Checkbox.Group>
+					<Checkbox value="Full Time">Full Time Only</Checkbox>
+				</Checkbox.Group>
+			</Form.Item>
+			<Form.Item>
+				<Button type="primary" htmlType="submit">Search</Button>
+			</Form.Item>
+		</Form>
+		<Table
+			dataSource={data}
+			bordered
+			size="middle"
+			rowKey="id"
+		>
+			<Column title="Title" dataIndex="title" key="title" />
+			<Column title="Company" dataIndex="company" key="company" />
+			<Column title="Type" dataIndex="type" key="type" />
+			<Column title="Location" dataIndex="location" key="location" />
+			<Column
+				title="Action"
+				align="center"
+				key="action"
+				render={(item) => (
+					<Space size="middle">
+						<Button onClick={() => clickDetail(item.id)} type="primary">Detail</Button>
+					</Space>
+				)}
+			/>
+		</Table>
+	</div>
+
   );
 }
 

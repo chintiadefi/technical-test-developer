@@ -1,6 +1,7 @@
 const url = {
   JOB_LIST: { name: "Job List", route: "/" },
   LOGIN: { name: "Login", route: "/login" },
+  JOB_DETAIL: { name: "Detail Job", route: "/job/:id" },
 };
 
 export const generateDynamicUrl = (path, params = {}) => {

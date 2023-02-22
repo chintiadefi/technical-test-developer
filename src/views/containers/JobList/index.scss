@@ -1,0 +1,11 @@
+@import "~/src/styles/index.scss";
+
+.search-form {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 16px !important;
+
+    .ant-form-item {
+        margin: 0 8px;
+    }
+}
