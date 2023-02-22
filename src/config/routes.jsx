@@ -1,107 +1,29 @@
 import React from "react";
-import ListUser from "../views/containers/ListUsers/ListUsers";
-import ListPosts from "../views/containers/ListPosts/ListPosts";
-import ListComments from "../views/containers/ListComments/ListComments";
-import ListAlbums from "../views/containers/ListAlbums/ListAlbums";
-import ListPhotos from "../views/containers/ListPhotos/ListPhotos";
+import Login from "../views/containers/Login";
+import JobList from "../views/containers/JobList";
 import url from "./url";
 
 const routes = [
   {
     id: 1,
-    name: url.LIST_USER.name,
-    path: url.LIST_USER.route,
+    name: url.JOB_LIST.name,
+    path: url.JOB_LIST.route,
     exact: true,
-    content: <ListUser />,
+    content: <JobList />,
     breadCrumb: [
       {
         id: 1,
-        href: url.LIST_USER.route,
-        name: url.LIST_USER.name,
+        href: url.JOB_LIST.route,
+        name: url.JOB_LIST.name,
       },
     ],
   },
   {
     id: 2,
-    name: url.USER_POSTS.name,
-    path: url.USER_POSTS.route,
+    name: url.LOGIN.name,
+    path: url.LOGIN.route,
     exact: true,
-    content: <ListPosts />,
-    breadCrumb: [{
-      id: 1,
-      href: url.LIST_USER.route,
-      name: url.LIST_USER.name,
-    },
-    {
-      id: 2,
-      href: url.USER_POSTS.route,
-      name: url.USER_POSTS.name,
-    },
-    ],
-  },
-  {
-    id: 3,
-    name: url.LIST_COMMENTS.name,
-    path: url.LIST_COMMENTS.route,
-    exact: true,
-    content: <ListComments />,
-    breadCrumb: [{
-      id: 1,
-      href: url.LIST_USER.route,
-      name: url.LIST_USER.name,
-    },
-    {
-      id: 2,
-      href: url.USER_POSTS.route,
-      name: url.USER_POSTS.name,
-    },
-    {
-      id: 3,
-      href: url.LIST_COMMENTS.route,
-      name: url.LIST_COMMENTS.name,
-    },
-    ],
-  },
-  {
-    id: 4,
-    name: url.USER_ALBUMS.name,
-    path: url.USER_ALBUMS.route,
-    exact: true,
-    content: <ListAlbums />,
-    breadCrumb: [{
-      id: 1,
-      href: url.LIST_USER.route,
-      name: url.LIST_USER.name,
-    },
-    {
-      id: 2,
-      href: url.USER_ALBUMS.route,
-      name: url.USER_ALBUMS.name,
-    },
-    ],
-  },
-  {
-    id: 5,
-    name: url.ALBUM_PHOTOS.name,
-    path: url.ALBUM_PHOTOS.route,
-    exact: true,
-    content: <ListPhotos />,
-    breadCrumb: [{
-      id: 1,
-      href: url.LIST_USER.route,
-      name: url.LIST_USER.name,
-    },
-    {
-      id: 2,
-      href: url.USER_ALBUMS.route,
-      name: url.USER_ALBUMS.name,
-    },
-    {
-      id: 3,
-      href: url.ALBUM_PHOTOS.route,
-      name: url.ALBUM_PHOTOS.name,
-    },
-    ],
+    content: <Login />,
   },
 ];
 

@@ -1,9 +1,6 @@
 const url = {
-  LIST_USER: { name: "List User", route: "/" },
-  USER_POSTS: { name: "List Posts of User", route: "/posts/:userId" },
-  LIST_COMMENTS: { name: "List Comments of Post", route: "/comments/:postId" },
-  USER_ALBUMS: { name: "List Albums of User", route: "/albums/:userId" },
-  ALBUM_PHOTOS: { name: "List Photos of Album", route: "/photos/:albumId" },
+  JOB_LIST: { name: "Job List", route: "/" },
+  LOGIN: { name: "Login", route: "/login" },
 };
 
 export const generateDynamicUrl = (path, params = {}) => {

@@ -31,7 +31,7 @@ function Container(props) {
 		</Content>
 
 		<Footer style={{ textAlign: "center" }}>
-			Chintia Devi ©2022 Created for Kumparan - Frontend Technical Assessment
+			Chintia Devi ©2023 - Technical Test Developer - PT. Astra Graphia Information Technology
 		</Footer>
 	</Layout>
   );
